@@ -15,6 +15,7 @@ document.querySelector('.check').addEventListener('click', function(){
         // If user matches the number, you win.
         document.querySelector('.message').textContent = 'You win!';
         document.querySelector('body').style.backgroundColor = '#60b347';
+        document.querySelector('.number').textContent = gameNumber;
         document.querySelector('.number').style.width = '30rem';
 
     // Guess is too high
@@ -23,6 +24,9 @@ document.querySelector('.check').addEventListener('click', function(){
             document.querySelector('.message').textContent = 'Too high!';
             score--;
             document.querySelector('.score').textContent = score;
+        } else {
+            document.querySelector('.message').textContent = 'You lose the game!';
+            document.querySelector('.score').textContent = 0;
         }
 
     // Guess is too low
@@ -31,6 +35,9 @@ document.querySelector('.check').addEventListener('click', function(){
             document.querySelector('.message').textContent = 'Too low!';
             score--;
             document.querySelector('.score').textContent = score;
+        } else {
+            document.querySelector('.message').textContent = 'You lose the game!';
+            document.querySelector('.score').textContent = 0;
         }
     }
 });
