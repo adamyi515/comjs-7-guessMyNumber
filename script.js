@@ -1,8 +1,9 @@
 'use strict';
-const gameNumber = getNumber();
-console.log(gameNumber);
-let score = 20;
+let gameNumber;
+let score;
 
+// Initialize game parameters at the beginning of game.
+init();
 
 // Event Handlers
 document.querySelector('.check').addEventListener('click', function(){
@@ -43,7 +44,36 @@ document.querySelector('.check').addEventListener('click', function(){
 });
 
 
+document.querySelector('.again').addEventListener('click', function() {
+     /*
+    1. Reset the game
+     - Reset score
+     - Remove any CSS that changes if user wins
+     - Generate a new number
+    */
+    init();
+});
+
+
 // Functions
 function getNumber(){
     return (Math.floor(Math.random() * 20) + 1);
+}
+
+function init(){
+    gameNumber = getNumber();
+    console.log(gameNumber);
+    // Reset the score board.
+    score = 20;
+    document.querySelector('.score').textContent = score;
+    document.querySelector('.number').textContent = '?';
+    document.querySelector('.guess').value = '';
+
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.width = '15rem';
+
+    // Revert the game message back to the original
+    document.querySelector('.message').textContent = 'Start guessing...';
+
+
 }
