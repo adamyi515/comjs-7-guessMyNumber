@@ -28,27 +28,41 @@ document.querySelector('.check').addEventListener('click', function(){
         }
 
     // Guess is too high
-    } else if(userGuess > gameNumber){
+    } else if(userGuess !== gameNumber){
         if(score > 1){
-            document.querySelector('.message').textContent = 'Too high!';
+            document.querySelector('.message').textContent = userGuess > gameNumber ?
+                'Too high!' : 'Too low!';
             score--;
             document.querySelector('.score').textContent = score;
         } else {
             document.querySelector('.message').textContent = 'You lose the game!';
-            document.querySelector('.score').textContent = 0;
-        }
-
-    // Guess is too low
-    } else if(userGuess < gameNumber){
-        if(score > 1){
-            document.querySelector('.message').textContent = 'Too low!';
-            score--;
+            score = 0;
             document.querySelector('.score').textContent = score;
-        } else {
-            document.querySelector('.message').textContent = 'You lose the game!';
-            document.querySelector('.score').textContent = 0;
         }
     }
+
+    
+    // else if(userGuess > gameNumber){
+    //     if(score > 1){
+    //         document.querySelector('.message').textContent = 'Too high!';
+    //         score--;
+    //         document.querySelector('.score').textContent = score;
+    //     } else {
+    //         document.querySelector('.message').textContent = 'You lose the game!';
+    //         document.querySelector('.score').textContent = 0;
+    //     }
+
+    // // Guess is too low
+    // } else if(userGuess < gameNumber){
+    //     if(score > 1){
+    //         document.querySelector('.message').textContent = 'Too low!';
+    //         score--;
+    //         document.querySelector('.score').textContent = score;
+    //     } else {
+    //         document.querySelector('.message').textContent = 'You lose the game!';
+    //         document.querySelector('.score').textContent = 0;
+    //     }
+    // }
 });
 
 
