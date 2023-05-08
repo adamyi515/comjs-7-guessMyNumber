@@ -1,6 +1,7 @@
 'use strict';
-let gameNumber;
-let score;
+let gameNumber; // This variable is initialized in the init() function.
+let score; // The Score variable is initialized in the init() function.
+let highscore = 0;
 
 // Initialize game parameters at the beginning of game.
 init();
@@ -18,6 +19,13 @@ document.querySelector('.check').addEventListener('click', function(){
         document.querySelector('body').style.backgroundColor = '#60b347';
         document.querySelector('.number').textContent = gameNumber;
         document.querySelector('.number').style.width = '30rem';
+
+        // Check the highscore. If the current game's highscore is higher than previous, then
+        // update highscore.
+        if(highscore < score){
+            highscore = score;
+            document.querySelector('.highscore').textContent = highscore;
+        }
 
     // Guess is too high
     } else if(userGuess > gameNumber){
